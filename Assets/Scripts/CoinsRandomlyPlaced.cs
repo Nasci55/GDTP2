@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -6,10 +8,14 @@ public class CoinsRandomlyPlaced : MonoBehaviour
     [SerializeField] 
     private Player player;
     private Collider2D playerCollider;
+    [SerializeField]
+    private float delayForCoins;  
 
     [SerializeField]
     private SpawnPoints spawnPoints;
-    int[] lastSpawns = new int[3]; 
+    
+    int[] lastSpawns = new int[3];
+    private int lastPos = 0;
 
     
     
@@ -28,56 +34,75 @@ public class CoinsRandomlyPlaced : MonoBehaviour
         if (collider = playerCollider)
         {
             int randPos = Random.Range(0, 15);
-            Debug.Log($"Coin is now in {randPos}");
-            switch (randPos) 
+            transform.position = new Vector2(0, 0);
+            
+            if (randPos == lastPos)
             {
-                case 0:
-                    transform.position = spawnPoints.FirstSpawn.position;
-                    break;
-                case 1:
-                    transform.position = spawnPoints.SecondSpawn.position;
-                    break;
-                case 2:
-                    transform.position = spawnPoints.ThirdSpawn.position;
-                    break;
-                case 3:
-                    transform.position = spawnPoints.FourthSpawn.position;
-                    break;
-                case 4:
-                    transform.position = spawnPoints.FifthSpawn.position;
-                    break;
-                case 5:
-                    transform.position = spawnPoints.SixthSpawn.position;
-                    break;
-                case 6:
-                    transform.position = spawnPoints.SeventhSpawn.position;
-                    break;
-                case 7:
-                    transform.position = spawnPoints.EightSpawn.position;
-                    break;
-                case 8:
-                    transform.position = spawnPoints.NinethSpawn.position;
-                    break;
-                case 9:
-                    transform.position = spawnPoints.TenthSpawn.position;
-                    break;
-                case 10:
-                    transform.position = spawnPoints.EleventhSpawn.position;
-                    break;
-                case 11:
-                    transform.position = spawnPoints.TwelfthSpawn.position;
-                    break;
-                case 12:
-                    transform.position = spawnPoints.ThirteenthSpawn.position;
-                    break;
-                case 13:
-                    transform.position = spawnPoints.FourthSpawn.position;
-                    break;
-                case 14:
-                    transform.position = spawnPoints.FifteenthSpawn.position;
-                    break;
+                randPos = Random.Range(0,15);
+            }
+            
+
+            StartCoroutine(DelayCoinSpawning(delayForCoins, randPos));
+            //Debug.Log($"Coin is now in {randPos}");
+            
+            lastPos = randPos;
 
         }
+    }
+
+    private IEnumerator DelayCoinSpawning(float delay, int randPos)
+    {
+         yield return new WaitForSeconds(delay);
+
+        switch (randPos)
+        {
+            case 0:
+                transform.position = spawnPoints.FirstSpawn.position;
+                break;
+            case 1:
+                transform.position = spawnPoints.SecondSpawn.position;
+                break;
+            case 2:
+                transform.position = spawnPoints.ThirdSpawn.position;
+                break;
+            case 3:
+                transform.position = spawnPoints.FourthSpawn.position;
+                break;
+            case 4:
+                transform.position = spawnPoints.FifthSpawn.position;
+                break;
+            case 5:
+                transform.position = spawnPoints.SixthSpawn.position;
+                break;
+            case 6:
+                transform.position = spawnPoints.SeventhSpawn.position;
+                break;
+            case 7:
+                transform.position = spawnPoints.EightSpawn.position;
+                break;
+            case 8:
+                transform.position = spawnPoints.NinethSpawn.position;
+                break;
+            case 9:
+                transform.position = spawnPoints.TenthSpawn.position;
+                break;
+            case 10:
+                transform.position = spawnPoints.EleventhSpawn.position;
+                break;
+            case 11:
+                transform.position = spawnPoints.TwelfthSpawn.position;
+                break;
+            case 12:
+                transform.position = spawnPoints.ThirteenthSpawn.position;
+                break;
+            case 13:
+                transform.position = spawnPoints.FourthSpawn.position;
+                break;
+            case 14:
+                transform.position = spawnPoints.FifteenthSpawn.position;
+                break;
+        }
+
     }
 }
 
@@ -114,7 +139,7 @@ public class SpawnPoints
      public Transform TwelfthSpawn => twelfthSpawn;
      public Transform ThirteenthSpawn => thirteenthSpawn;
      public Transform FifteenthSpawn => fifteenthSpawn;
-    }
 }
+
 
 
