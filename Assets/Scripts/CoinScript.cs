@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Collider2D coinColider;
+    [SerializeField]
+    private int coinValue = 1;
+    [SerializeField]
+    private int coinStach;
+    [SerializeField]
+    private GameObject coin;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision == coinColider)
+        {
+            coinStach += coinValue;
+            Destroy(coin);
+        }
     }
 }
