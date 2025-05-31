@@ -16,7 +16,6 @@ public class CoinScript : MonoBehaviour
         if (collision == coinColider)
         {
             coinStach += coinValue;
-            Destroy(coin);
         }
     }
 }
