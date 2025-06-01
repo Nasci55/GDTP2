@@ -1,37 +1,44 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using OkapiKit;
-using System.Runtime.CompilerServices;
 
 public class CoinCount : MonoBehaviour
 {
     [SerializeField]
     private CoinScript getCoinStash;
     [SerializeField]
+    private Vault getVault;
+    [SerializeField]
     public TextMeshProUGUI coinText;
-    //private int coinCount = 0;
+    [SerializeField]
+    public TextMeshProUGUI vaultText;
     private CoinScript coinTotal;
+    private Vault vaultCoinTotal;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         coinTotal = getCoinStash.GetComponent<CoinScript>();
+        vaultCoinTotal = getVault.GetComponent<Vault>();
     }
 
     void Update()
     {
-        TextUpdate();
+        CoinTextUpdate();
     }
-    void TextUpdate()
+
+    void CoinTextUpdate()
     {
-        if (coinTotal != null)
+        if (coinTotal != null && vaultCoinTotal != null)
         {
             coinText.text = $"Coins: {coinTotal.coinStach}";
+            vaultText.text = $"Vault: {vaultCoinTotal.totalCoins}";
+        }
+        else if (coinTotal == null || vaultCoinTotal == null)
+        {
+            Debug.LogWarning("CoinScript or Vault component GameObject missing!");
         }
         else
         {
-            Debug.LogWarning("CoinScript component not found on the GameObject.");
-            coinText.text = "Coins: 0";
+            Debug.LogError("CoinScript and Vault component GameObject missing!!");
         }
     }
 }

@@ -267,7 +267,6 @@ GameObject:
   - component: {fileID: 806743097}
   - component: {fileID: 806743096}
   - component: {fileID: 806743095}
-  - component: {fileID: 806743100}
   - component: {fileID: 806743099}
   m_Layer: 5
   m_Name: Canvas
@@ -368,45 +367,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 806743094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b12253cfd341aa46a3a6fcba7709af0, type: 3}
+  m_Script: {fileID: 11500000, guid: fc625a0ab8c2dca4e901a0b25ceb76ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showInfo: 1
-  _explanation: Switches to scene Diogo
-  description: 
-  enableAction: 1
-  hasTags: 0
-  actionTags: []
-  hasConditions: 0
-  actionConditions: []
-  sceneName: Diogo
---- !u!114 &806743100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806743094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46216fa097ecb754babda0f26d640422, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showInfo: 1
-  _explanation: "Every 3 seconds, trigger the actions::\n          switches to scene
-    Diogo\n"
-  description: 
-  enableTrigger: 1
-  allowRetrigger: 1
-  hasPreconditions: 0
-  preConditions: []
-  actions:
-  - delay: 0
-    action: {fileID: 806743099}
-  startTriggered: 0
-  initialDelayEnable: 0
-  initialDelay: {x: 5, y: 5}
-  timeInterval: {x: 3, y: 3}
 --- !u!1 &1117845296
 GameObject:
   m_ObjectHideFlags: 0

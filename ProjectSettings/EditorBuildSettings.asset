@@ -9,7 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: d25a2c13068f3ab43a98079b47e5f273
   - enabled: 1
-    path: Assets/Scenes/Diogo.unity
-    guid: 3f04e30ace77fef44873add685542b67
+    path: Assets/Scenes/Rafael.unity
+    guid: 67128d298e182d741b0b3506b3502e02
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 065853c71fd62a74a92cd5622c62e514
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

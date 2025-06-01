@@ -5,7 +5,8 @@ public class Vault : MonoBehaviour
     [SerializeField]
     private CoinScript getPlayerStash;
     [SerializeField]
-    private int totalCoins = 0;
+    //private int totalCoins = 0;
+    public int totalCoins { get; private set; } = 0;
 
     private Collider2D playerCollider;
     public bool areTheCoinsInTheVault {  get; private set; }
