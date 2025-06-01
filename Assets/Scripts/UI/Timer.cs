@@ -6,7 +6,7 @@ public class Timer : MonoBehaviour
 {
     [SerializeField]
     public TextMeshProUGUI timerText;
-    [SerializeField, Range(0f, 500.0f)]
+    [SerializeField, Range(0f, 15.0f)]
     private float countdownTime;
     [SerializeField]
     private Vault vault;

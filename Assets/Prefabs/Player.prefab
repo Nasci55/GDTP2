@@ -450,23 +450,23 @@ MonoBehaviour:
     the ground layer mask defines what is considered solid ground.
 
     When there''s
-    no solid ground below character, the character will start falling after 0,15s,
-    with a gravity scale of 1.
+    no solid ground below character, the character will fall with a gravity scale
+    of 1.
 
     The character''s trajectory can be modified mid-air.
 
-    When
-    in the air, the character''s collider will be Player(Player (UnityEngine.BoxCollider2D)),
+    When in
+    the air, the character''s collider will be Player(Player (UnityEngine.BoxCollider2D)),
     and on the ground will be Player(Player (UnityEngine.CapsuleCollider2D)).
 
     The
     character will jump by holding the [Vertical] axis.
 
     The vertical velocity
-    will be 99,99 units/second while jump is pressed, during a maximum of 0,2 seconds.
+    will be 250 units/second while jump is pressed, during a maximum of 0,2 seconds.
 
     Jump
-    height will be between 7 to 27 units (from 0,14 to 0,34 seconds to top of trajectory).
+    height will be between 44 to 94 units (from 0,35 to 0,55 seconds to top of trajectory).
 
     If
     the character presses the jump button up to 0,1s before hitting the ground, it
@@ -498,7 +498,7 @@ MonoBehaviour:
   description: Platformer controller
   hasConditions: 0
   conditions: []
-  speed: {x: 250, y: 99.99}
+  speed: {x: 250, y: 250}
   horizontalInputType: 0
   horizontalAxis: Horizontal
   horizontalButtonPositive: Right
@@ -508,7 +508,7 @@ MonoBehaviour:
   gravityScale: 1
   useTerminalVelocity: 0
   terminalVelocity: 5
-  coyoteTime: 0.15
+  coyoteTime: 0
   jumpBehaviour: 2
   maxJumpCount: 1
   jumpBufferingTime: 0.1
@@ -674,6 +674,7 @@ MonoBehaviour:
   coinValue: 1
   coin: {fileID: 0}
   Vault: {fileID: 0}
+  enemyCooldown: 5
 --- !u!114 &1861885420853833475
 MonoBehaviour:
   m_ObjectHideFlags: 0
