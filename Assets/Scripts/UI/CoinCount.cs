@@ -22,10 +22,10 @@ public class CoinCount : MonoBehaviour
 
     void Update()
     {
-        CoinTextUpdate();
+        TextUpdate();
     }
 
-    void CoinTextUpdate()
+    void TextUpdate()
     {
         if (coinTotal != null && vaultCoinTotal != null)
         {
