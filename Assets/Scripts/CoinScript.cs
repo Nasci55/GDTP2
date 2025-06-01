@@ -14,12 +14,42 @@ public class CoinScript : MonoBehaviour
     [SerializeField]
     public int coinStach { get; private set; } = 0;
 
+    [SerializeField]
+    private float enemyCooldown = 5;
+
+    private void Update()
+    {
+        enemyCooldown -= Time.deltaTime;
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        Debug.Log(enemyCooldown);
+        Debug.Log($"{collider.name}");
         if (collider == coinColider)
         {
             coinStach += coinValue;
             Debug.Log($"You have {coinStach} coin/s");
+        }        
+        if (collider.GetComponentInParent<EnemyRobber>())
+        {
+
+            if (enemyCooldown < 0)
+            {
+                if (coinStach > 1)
+                {
+                    coinStach -= 2;
+                    Debug.Log($"The player now has {coinStach}");
+                    enemyCooldown = 5;
+                }
+                else
+                {
+                    coinStach = 0;
+                    Debug.Log($"The player has 0");
+                    enemyCooldown = 5;
+                }
+            }
         }
     }
 
@@ -30,4 +60,5 @@ public class CoinScript : MonoBehaviour
             coinStach = 0;
         }
     }
+
 }

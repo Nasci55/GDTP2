@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6278270058619526063}
   - component: {fileID: 8737765170853070685}
   - component: {fileID: 225288135660073013}
+  - component: {fileID: 8060924354165554460}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -97, y: 614, z: 0}
-  m_LocalScale: {x: 279.39426, y: 244.40356, z: 1}
+  m_LocalScale: {x: 244, y: 244.40356, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7407887, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -124,3 +125,33 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.1
+--- !u!114 &8060924354165554460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551450113130384856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886aa31d2fc7f8e4aa3f507e1ef741f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  delayForCoins: 1
+  spawnPoints:
+    firstSpawn: {fileID: 0}
+    secondSpawn: {fileID: 0}
+    thirdSpawn: {fileID: 0}
+    fourthSpawn: {fileID: 0}
+    fifthSpawn: {fileID: 0}
+    sixthSpawn: {fileID: 0}
+    seventhSpawn: {fileID: 0}
+    eightSpawn: {fileID: 0}
+    ninethSpawn: {fileID: 0}
+    tenthSpawn: {fileID: 0}
+    eleventhSpawn: {fileID: 0}
+    twelfthSpawn: {fileID: 0}
+    thirteenthSpawn: {fileID: 0}
+    fourteenthSpawn: {fileID: 0}
+    fifteenthSpawn: {fileID: 0}

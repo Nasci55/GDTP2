@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
+        countdownTime *= 60;
         vaultCoinTotal = vault.GetComponent<Vault>(); 
     }
     void Update()
