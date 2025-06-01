@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 5108493089797189174}
   - component: {fileID: 7087177866590149606}
   - component: {fileID: 2489274546114457752}
+  - component: {fileID: 1861885420853833475}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -450,7 +451,7 @@ MonoBehaviour:
 
     When there''s
     no solid ground below character, the character will start falling after 0,15s,
-    with a gravity scale of 2.
+    with a gravity scale of 1.
 
     The character''s trajectory can be modified mid-air.
 
@@ -459,13 +460,13 @@ MonoBehaviour:
     and on the ground will be Player(Player (UnityEngine.CapsuleCollider2D)).
 
     The
-    character will jump by holding the [Jump] button.
+    character will jump by holding the [Vertical] axis.
 
     The vertical velocity
     will be 99,99 units/second while jump is pressed, during a maximum of 0,2 seconds.
 
     Jump
-    height will be between 3 to 23 units (from 0,07 to 0,27 seconds to top of trajectory).
+    height will be between 7 to 27 units (from 0,14 to 0,34 seconds to top of trajectory).
 
     If
     the character presses the jump button up to 0,1s before hitting the ground, it
@@ -504,7 +505,7 @@ MonoBehaviour:
   horizontalButtonNegative: Left
   horizontalKeyPositive: 275
   horizontalKeyNegative: 276
-  gravityScale: 2
+  gravityScale: 1
   useTerminalVelocity: 0
   terminalVelocity: 5
   coyoteTime: 0.15
@@ -512,7 +513,7 @@ MonoBehaviour:
   maxJumpCount: 1
   jumpBufferingTime: 0.1
   jumpHoldMaxTime: 0.2
-  jumpInputType: 1
+  jumpInputType: 0
   jumpAxis: Vertical
   jumpButton: Jump
   jumpKey: 32
@@ -671,5 +672,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinColider: {fileID: 0}
   coinValue: 1
-  coinStach: 0
   coin: {fileID: 0}
+  Vault: {fileID: 0}
+--- !u!114 &1861885420853833475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842685694968912219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2934a9bc2e96343b1cafd6977675d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRB: {fileID: 7560769919927451690}
