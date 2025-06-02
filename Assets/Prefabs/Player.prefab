@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 7087177866590149606}
   - component: {fileID: 2489274546114457752}
   - component: {fileID: 1861885420853833475}
+  - component: {fileID: 8467721648862783877}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -262,7 +263,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4334783836991956000, guid: 1e757df3f06fd944e949e7ec47fa29f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -441,7 +442,7 @@ MonoBehaviour:
     ----------------
 
     Platformer movement;
-    horizontal speed is 250 units per second.
+    horizontal speed is 375 units per second.
 
     Horizontal movement will be controlled
     by the [Horizontal] axis.
@@ -451,7 +452,7 @@ MonoBehaviour:
 
     When there''s
     no solid ground below character, the character will fall with a gravity scale
-    of 1.
+    of 2,5.
 
     The character''s trajectory can be modified mid-air.
 
@@ -460,56 +461,75 @@ MonoBehaviour:
     and on the ground will be Player(Player (UnityEngine.CapsuleCollider2D)).
 
     The
-    character will jump by holding the [Vertical] axis.
+    character will jump at a fixed height by using the [Vertical] axis.
 
-    The vertical velocity
-    will be 250 units/second while jump is pressed, during a maximum of 0,2 seconds.
+    The
+    initial vertical velocity will be 300 units/second.
 
-    Jump
-    height will be between 44 to 94 units (from 0,35 to 0,55 seconds to top of trajectory).
+    Jump height will be
+    25 units (0,17 seconds to top of trajectory).
 
-    If
-    the character presses the jump button up to 0,1s before hitting the ground, it
-    will jump automatically again.
+    If the character presses the
+    jump button up to 0,1s before hitting the ground, it will jump automatically
+    again.
 
     This controller also controls some visuals:
 
-    When
-    the player intent is to go left, the horizontal scale of this object will be
-    inverted.
+    When the player
+    intent is to go left, the horizontal scale of this object will be inverted.
 
-    Some values will be set on animator Player:
+    Some
+    values will be set on animator Player:
 
-    Horizontal velocity
-    will be set to parameter VelocityX.
+    Horizontal velocity will be set to
+    parameter VelocityX.
 
-    Absolute horizontal velocity will be
-    set to parameter AbsVelocityX.
+    Absolute horizontal velocity will be set to parameter
+    AbsVelocityX.
 
-    Vertical velocity will be set to parameter
-    VelocityY.
+    Vertical velocity will be set to parameter VelocityY.
 
-    Absolute vertical velocity will be set to parameter AbsVelocityY.
+    Absolute
+    vertical velocity will be set to parameter AbsVelocityY.
 
-    Grounded
-    state will be set to parameter IsGrounded.
+    Grounded state
+    will be set to parameter IsGrounded.
 
 '
   description: Platformer controller
   hasConditions: 0
-  conditions: []
-  speed: {x: 250, y: 250}
+  conditions:
+  - negate: 0
+    valueHandler: {fileID: 0}
+    variable: {fileID: 0}
+    valueType: 1
+    tag: {fileID: 0}
+    tagCountRangeEnabled: 0
+    tagCountRange: 0
+    sourceTransform: {fileID: 0}
+    rigidBody: {fileID: 0}
+    axis: 0
+    probe: {fileID: 0}
+    movementPlatformer: {fileID: 0}
+    comparison: 0
+    value: 0
+    comparisonValueHandler: {fileID: 0}
+    comparisonVariable: {fileID: 0}
+    percentageCompare: 0
+    tile: {fileID: 0}
+    tileSet: {fileID: 0}
+  speed: {x: 375, y: 300}
   horizontalInputType: 0
   horizontalAxis: Horizontal
   horizontalButtonPositive: Right
   horizontalButtonNegative: Left
   horizontalKeyPositive: 275
   horizontalKeyNegative: 276
-  gravityScale: 1
+  gravityScale: 2.5
   useTerminalVelocity: 0
   terminalVelocity: 5
   coyoteTime: 0
-  jumpBehaviour: 2
+  jumpBehaviour: 1
   maxJumpCount: 1
   jumpBufferingTime: 0.1
   jumpHoldMaxTime: 0.2
@@ -688,3 +708,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 7560769919927451690}
+--- !u!114 &8467721648862783877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842685694968912219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a01e25dd5a55e4f8ee1da82ac0dad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 375, y: 300}
+  coinScript: {fileID: 2489274546114457752}
+  pause: {fileID: 0}
+  gravityScaling: 2
+  jumpMaxDuration: 0.1
+  groundCheckLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  groundCheck: {fileID: 342710510324786417}
+  groundCheckRadius: 2

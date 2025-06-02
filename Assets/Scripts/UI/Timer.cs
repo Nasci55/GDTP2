@@ -31,7 +31,7 @@ public class Timer : MonoBehaviour
         {
             countdownTime = 0;
             timerText.text = $"{minutes:00}:{seconds:00}";
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
 
         else
