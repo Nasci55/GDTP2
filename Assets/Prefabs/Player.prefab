@@ -184,17 +184,17 @@ GameObject:
   m_Component:
   - component: {fileID: 1002349915276062100}
   - component: {fileID: 3955134123357418497}
-  - component: {fileID: 7560769919927451690}
+  - component: {fileID: 2537794275239613169}
   - component: {fileID: 6115358155629700593}
   - component: {fileID: 1042135248115242184}
   - component: {fileID: 3730690511119884260}
   - component: {fileID: 5129667422739465645}
-  - component: {fileID: 5159104779437318878}
   - component: {fileID: 4611107816096101023}
   - component: {fileID: 5108493089797189174}
   - component: {fileID: 7087177866590149606}
   - component: {fileID: 2489274546114457752}
   - component: {fileID: 1861885420853833475}
+  - component: {fileID: 2790040937189400439}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -274,7 +274,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7560769919927451690
+--- !u!50 &2537794275239613169
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -289,7 +289,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -308,7 +308,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8842685694968912219}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -392,7 +392,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8842685694968912219}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f6577285de641ad4c966ec9169599e3c, type: 2}
   m_CullingMode: 0
@@ -423,123 +423,6 @@ MonoBehaviour:
   description: 
   hypertags:
   - {fileID: 11400000, guid: a6867e8f47561dd47addd221d82d3e1b, type: 2}
---- !u!114 &5159104779437318878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8842685694968912219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3088c41d9f9a9f4ab3a63bd3c155b74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showInfo: 1
-  _explanation: 'Platformer controller
-
-    ----------------
-
-    Platformer movement;
-    horizontal speed is 250 units per second.
-
-    Horizontal movement will be controlled
-    by the [Horizontal] axis.
-
-    Ground check is going to use collider GroundCheck,
-    the ground layer mask defines what is considered solid ground.
-
-    When there''s
-    no solid ground below character, the character will fall with a gravity scale
-    of 1.
-
-    The character''s trajectory can be modified mid-air.
-
-    When in
-    the air, the character''s collider will be Player(Player (UnityEngine.BoxCollider2D)),
-    and on the ground will be Player(Player (UnityEngine.CapsuleCollider2D)).
-
-    The
-    character will jump by holding the [Vertical] axis.
-
-    The vertical velocity
-    will be 250 units/second while jump is pressed, during a maximum of 0,2 seconds.
-
-    Jump
-    height will be between 44 to 94 units (from 0,35 to 0,55 seconds to top of trajectory).
-
-    If
-    the character presses the jump button up to 0,1s before hitting the ground, it
-    will jump automatically again.
-
-    This controller also controls some visuals:
-
-    When
-    the player intent is to go left, the horizontal scale of this object will be
-    inverted.
-
-    Some values will be set on animator Player:
-
-    Horizontal velocity
-    will be set to parameter VelocityX.
-
-    Absolute horizontal velocity will be
-    set to parameter AbsVelocityX.
-
-    Vertical velocity will be set to parameter
-    VelocityY.
-
-    Absolute vertical velocity will be set to parameter AbsVelocityY.
-
-    Grounded
-    state will be set to parameter IsGrounded.
-
-'
-  description: Platformer controller
-  hasConditions: 0
-  conditions: []
-  speed: {x: 250, y: 250}
-  horizontalInputType: 0
-  horizontalAxis: Horizontal
-  horizontalButtonPositive: Right
-  horizontalButtonNegative: Left
-  horizontalKeyPositive: 275
-  horizontalKeyNegative: 276
-  gravityScale: 1
-  useTerminalVelocity: 0
-  terminalVelocity: 5
-  coyoteTime: 0
-  jumpBehaviour: 2
-  maxJumpCount: 1
-  jumpBufferingTime: 0.1
-  jumpHoldMaxTime: 0.2
-  jumpInputType: 0
-  jumpAxis: Vertical
-  jumpButton: Jump
-  jumpKey: 32
-  enableAirControl: 1
-  airCollider: {fileID: 1042135248115242184}
-  groundCollider: {fileID: 6115358155629700593}
-  glideBehaviour: 0
-  glideMaxTime: 3.4028235e+38
-  maxGlideSpeed: 50
-  glideInputType: 2
-  glideAxis: Vertical
-  glideButton: Jump
-  glideKey: 32
-  groundCheckCollider: {fileID: 7821988985268961672}
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  flipBehaviour: 4
-  useAnimator: 1
-  animator: {fileID: 3730690511119884260}
-  horizontalVelocityParameter: VelocityX
-  absoluteHorizontalVelocityParameter: AbsVelocityX
-  verticalVelocityParameter: VelocityY
-  absoluteVerticalVelocityParameter: AbsVelocityY
-  isGroundedParameter: IsGrounded
-  isGlidingParameter: 
 --- !u!114 &4611107816096101023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,16 +430,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8842685694968912219}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3203f38d4afc6a4283618fa1df06ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: "When (IsGrounded(Player) and (IsGrounded(Player):\n          sets
-    Player's sprite color to RGBA(1.000, 1.000, 1.000, 1.000)\nelse\n          sets
-    Player's sprite color to RGBA(0.718, 0.294, 0.335, 1.000)\n\nThis trigger will
-    execute only when the conditions change and they are all true."
+  _explanation: "When (IsGrounded([UNDEFINED]) and (IsGrounded([UNDEFINED]):\n         
+    sets Player's sprite color to RGBA(1.000, 1.000, 1.000, 1.000)\nelse\n         
+    sets Player's sprite color to RGBA(0.718, 0.294, 0.335, 1.000)\n\nThis trigger
+    will execute only when the conditions change and they are all true."
   description: 
   enableTrigger: 1
   allowRetrigger: 1
@@ -578,7 +461,7 @@ MonoBehaviour:
     rigidBody: {fileID: 0}
     axis: 0
     probe: {fileID: 0}
-    movementPlatformer: {fileID: 5159104779437318878}
+    movementPlatformer: {fileID: 0}
     comparison: 0
     value: 0
     comparisonValueHandler: {fileID: 0}
@@ -597,7 +480,7 @@ MonoBehaviour:
     rigidBody: {fileID: 0}
     axis: 0
     probe: {fileID: 0}
-    movementPlatformer: {fileID: 5159104779437318878}
+    movementPlatformer: {fileID: 0}
     comparison: 0
     value: 0
     comparisonValueHandler: {fileID: 0}
@@ -615,7 +498,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8842685694968912219}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 302ff7b812c0d7846bbbf5b0db22ec81, type: 3}
   m_Name: 
@@ -640,7 +523,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8842685694968912219}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 302ff7b812c0d7846bbbf5b0db22ec81, type: 3}
   m_Name: 
@@ -687,4 +570,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e2934a9bc2e96343b1cafd6977675d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRB: {fileID: 7560769919927451690}
+  playerRB: {fileID: 0}
+--- !u!114 &2790040937189400439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842685694968912219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a01e25dd5a55e4f8ee1da82ac0dad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 250, y: 500}
+  coinScript: {fileID: 2489274546114457752}
+  Backpack: {fileID: 0}
+  pause: {fileID: 0}
+  gravityScaling: 2
+  jumpMaxDuration: 0.1
+  groundCheckLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  groundCheck: {fileID: 342710510324786417}
+  groundCheckRadius: 2

@@ -30,7 +30,7 @@ public class Vault : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         //Debug.Log($"{collider.name} is inside");
-        if (collider == getPlayerStash.GetComponent<Collider2D>())
+        if (collider.GetComponent<CoinScript>())
         {
             Debug.Log("Player is inside");
             totalCoins += getPlayerStash.coinStach;
@@ -40,7 +40,7 @@ public class Vault : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider == getPlayerStash.GetComponent<Collider2D>())
+        if (collider.GetComponent<CoinScript>())
         {
             areTheCoinsInTheVault = false;
         }

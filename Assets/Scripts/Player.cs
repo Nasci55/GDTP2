@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector2 velocity;
     [SerializeField]
     private CoinScript coinScript;
-
+    [SerializeField]
+    private Backpack Backpack;
     [SerializeField]
     private GameObject pause;
     private int howManyCoins;
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     private float originalGravity;
     private Vector2 currentVelocity;
-    private Backpack doesThePlayerHaveTheBackpack;
+    private bool doesThePlayerHaveTheBackpack;
     
 
 
@@ -45,7 +46,8 @@ public class Player : MonoBehaviour
     {
         ComputeGrounded();
         Debug.Log(isGrounded);
-        howManyCoins = coinScript.coinStach;
+
+   
 
         float dir = Input.GetAxis("Horizontal");
 
@@ -91,13 +93,25 @@ public class Player : MonoBehaviour
 
 
 
-        if (howManyCoins != 0)
+        if (howManyCoins == 0)
         {
-            currentVelocity.x = currentVelocity.x / howManyCoins;
+            currentVelocity.x = dir * velocity.x;
+        }
+        else if (howManyCoins >= 4 && doesThePlayerHaveTheBackpack == false)
+        {
+            currentVelocity.x = currentVelocity.x / (howManyCoins - 3);
             Debug.Log(howManyCoins);
         }
+        else if (doesThePlayerHaveTheBackpack)
+        {
+            if (howManyCoins >= 7)
+            {
+                currentVelocity.x /= howManyCoins - 6;
+            }
+        }
 
-        rb.linearVelocity = currentVelocity;
+
+            rb.linearVelocity = currentVelocity;
 
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -105,6 +119,18 @@ public class Player : MonoBehaviour
             Time.timeScale = 0f;
             pause.SetActive(true);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        doesThePlayerHaveTheBackpack = Backpack.getBackpack;
+        howManyCoins = coinScript.coinStach;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        doesThePlayerHaveTheBackpack = Backpack.getBackpack;
+        howManyCoins = coinScript.coinStach;
     }
 
     private void ComputeGrounded()
