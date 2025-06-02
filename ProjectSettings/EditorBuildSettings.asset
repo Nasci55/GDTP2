@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: d25a2c13068f3ab43a98079b47e5f273
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: b5d886c69cb5dd5408a88a0027f4ba80
+  - enabled: 1
     path: Assets/Scenes/Rafael.unity
     guid: 67128d298e182d741b0b3506b3502e02
   - enabled: 1

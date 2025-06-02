@@ -39,7 +39,7 @@ public class CoinScript : MonoBehaviour
             {
                 if (coinStach > 1)
                 {
-                    coinStach -= 2;
+                    coinStach -= 3;
                     Debug.Log($"The player now has {coinStach}");
                     enemyCooldown = 5;
                 }
