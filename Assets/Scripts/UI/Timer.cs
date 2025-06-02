@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Timer : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class Timer : MonoBehaviour
     private float countdownTime;
     [SerializeField]
     private Vault vault;
+    [SerializeField]
+    private TextMeshProUGUI winText;
     private Vault vaultCoinTotal;
 
     void Start()
     {
         countdownTime *= 60;
-        vaultCoinTotal = vault.GetComponent<Vault>(); 
+        vaultCoinTotal = vault.GetComponent<Vault>();
+        winText.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -28,12 +32,6 @@ public class Timer : MonoBehaviour
             countdownTime = 0;
             timerText.text = $"{minutes:00}:{seconds:00}";
             SceneManager.LoadScene(2);
-        }
-
-        else if (vaultCoinTotal.totalCoins >= 50)
-        {
-            Time.timeScale = 0f;
-            SceneManager.LoadScene(0);
         }
 
         else

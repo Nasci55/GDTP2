@@ -1,4 +1,7 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Vault : MonoBehaviour
 {
@@ -7,30 +10,32 @@ public class Vault : MonoBehaviour
     [SerializeField]
     //private int totalCoins = 0;
     public int totalCoins { get; private set; } = 0;
-
+    [SerializeField]
+    private TextMeshProUGUI winText;
     private Collider2D playerCollider;
-    public bool areTheCoinsInTheVault {  get; private set; }
+    public bool areTheCoinsInTheVault { get; private set; }
 
     void Start()
     {
         playerCollider = getPlayerStash.GetComponent<Collider2D>();
+        winText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        StartCoroutine(WinScene());
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-       //Debug.Log($"{collider.name} is inside");
-       if (collider == getPlayerStash.GetComponent<Collider2D>())
-       {
+        //Debug.Log($"{collider.name} is inside");
+        if (collider == getPlayerStash.GetComponent<Collider2D>())
+        {
             Debug.Log("Player is inside");
             totalCoins += getPlayerStash.coinStach;
             areTheCoinsInTheVault = true;
-       }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
@@ -38,6 +43,16 @@ public class Vault : MonoBehaviour
         if (collider == getPlayerStash.GetComponent<Collider2D>())
         {
             areTheCoinsInTheVault = false;
+        }
+    }
+
+    private IEnumerator WinScene()
+    {
+        if (totalCoins >= 10)
+        {
+            winText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene(0);
         }
     }
 }

@@ -31,7 +31,7 @@ public class CoinsRandomlyPlaced : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider = playerCollider)
+        if (collider == playerCollider)
         {
             int randPos = Random.Range(0, 15);
             transform.position = new Vector2(0, 0);

@@ -5,6 +5,8 @@ public class EnemyRobber : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private bool checkEndOfPlatform = true;
     [SerializeField] private Transform checkEndOfPlatformTransform;
+    [SerializeField] private bool checkWall = true;
+    [SerializeField] private Transform checkWallTransform;
     [SerializeField] private LayerMask checkEndOfPlatformLayerMask;
     [SerializeField] private float sensorRadius;
     private Rigidbody2D rb;
@@ -27,6 +29,16 @@ public class EnemyRobber : MonoBehaviour
             Collider2D collider = Physics2D.OverlapCircle(checkEndOfPlatformTransform.position, sensorRadius,
                                                           checkEndOfPlatformLayerMask);
             if (collider == null)
+            {
+                direction = -direction;
+            }
+        }
+
+        if (checkWall)
+        {
+            Collider2D collider = Physics2D.OverlapCircle(checkWallTransform.position, sensorRadius,
+                                                          checkEndOfPlatformLayerMask);
+            if (collider != null)
             {
                 direction = -direction;
             }
@@ -54,6 +66,11 @@ public class EnemyRobber : MonoBehaviour
             Gizmos.color = Color.yellow;
             Gizmos.DrawSphere(checkEndOfPlatformTransform.position, sensorRadius);
         }
+        if ((checkWall) && (checkWallTransform != null))
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(checkWallTransform.position, sensorRadius);
+        }
     }
-    // Código feito por Diogo Andrade!! 
+    // Cï¿½digo feito por Diogo Andrade!! 
 }
