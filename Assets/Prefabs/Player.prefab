@@ -262,7 +262,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4334783836991956000, guid: 1e757df3f06fd944e949e7ec47fa29f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -423,6 +423,142 @@ MonoBehaviour:
   description: 
   hypertags:
   - {fileID: 11400000, guid: a6867e8f47561dd47addd221d82d3e1b, type: 2}
+--- !u!114 &5159104779437318878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842685694968912219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3088c41d9f9a9f4ab3a63bd3c155b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 1
+  _explanation: 'Platformer controller
+
+    ----------------
+
+    Platformer movement;
+    horizontal speed is 375 units per second.
+
+    Horizontal movement will be controlled
+    by the [Horizontal] axis.
+
+    Ground check is going to use collider GroundCheck,
+    the ground layer mask defines what is considered solid ground.
+
+    When there''s
+    no solid ground below character, the character will fall with a gravity scale
+    of 2,5.
+
+    The character''s trajectory can be modified mid-air.
+
+    When in
+    the air, the character''s collider will be Player(Player (UnityEngine.BoxCollider2D)),
+    and on the ground will be Player(Player (UnityEngine.CapsuleCollider2D)).
+
+    The
+    character will jump at a fixed height by using the [Vertical] axis.
+
+    The
+    initial vertical velocity will be 300 units/second.
+
+    Jump height will be
+    25 units (0,17 seconds to top of trajectory).
+
+    If the character presses the
+    jump button up to 0,1s before hitting the ground, it will jump automatically
+    again.
+
+    This controller also controls some visuals:
+
+    When the player
+    intent is to go left, the horizontal scale of this object will be inverted.
+
+    Some
+    values will be set on animator Player:
+
+    Horizontal velocity will be set to
+    parameter VelocityX.
+
+    Absolute horizontal velocity will be set to parameter
+    AbsVelocityX.
+
+    Vertical velocity will be set to parameter VelocityY.
+
+    Absolute
+    vertical velocity will be set to parameter AbsVelocityY.
+
+    Grounded state
+    will be set to parameter IsGrounded.
+
+'
+  description: Platformer controller
+  hasConditions: 0
+  conditions:
+  - negate: 0
+    valueHandler: {fileID: 0}
+    variable: {fileID: 0}
+    valueType: 1
+    tag: {fileID: 0}
+    tagCountRangeEnabled: 0
+    tagCountRange: 0
+    sourceTransform: {fileID: 0}
+    rigidBody: {fileID: 0}
+    axis: 0
+    probe: {fileID: 0}
+    movementPlatformer: {fileID: 0}
+    comparison: 0
+    value: 0
+    comparisonValueHandler: {fileID: 0}
+    comparisonVariable: {fileID: 0}
+    percentageCompare: 0
+    tile: {fileID: 0}
+    tileSet: {fileID: 0}
+  speed: {x: 375, y: 300}
+  horizontalInputType: 0
+  horizontalAxis: Horizontal
+  horizontalButtonPositive: Right
+  horizontalButtonNegative: Left
+  horizontalKeyPositive: 275
+  horizontalKeyNegative: 276
+  gravityScale: 2.5
+  useTerminalVelocity: 0
+  terminalVelocity: 5
+  coyoteTime: 0
+  jumpBehaviour: 1
+  maxJumpCount: 1
+  jumpBufferingTime: 0.1
+  jumpHoldMaxTime: 0.2
+  jumpInputType: 0
+  jumpAxis: Vertical
+  jumpButton: Jump
+  jumpKey: 32
+  enableAirControl: 1
+  airCollider: {fileID: 1042135248115242184}
+  groundCollider: {fileID: 6115358155629700593}
+  glideBehaviour: 0
+  glideMaxTime: 3.4028235e+38
+  maxGlideSpeed: 50
+  glideInputType: 2
+  glideAxis: Vertical
+  glideButton: Jump
+  glideKey: 32
+  groundCheckCollider: {fileID: 7821988985268961672}
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  flipBehaviour: 4
+  useAnimator: 1
+  animator: {fileID: 3730690511119884260}
+  horizontalVelocityParameter: VelocityX
+  absoluteHorizontalVelocityParameter: AbsVelocityX
+  verticalVelocityParameter: VelocityY
+  absoluteVerticalVelocityParameter: AbsVelocityY
+  isGroundedParameter: IsGrounded
+  isGlidingParameter: 
 --- !u!114 &4611107816096101023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,9 +719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a01e25dd5a55e4f8ee1da82ac0dad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 250, y: 500}
+  velocity: {x: 375, y: 300}
   coinScript: {fileID: 2489274546114457752}
-  Backpack: {fileID: 0}
   pause: {fileID: 0}
   gravityScaling: 2
   jumpMaxDuration: 0.1
