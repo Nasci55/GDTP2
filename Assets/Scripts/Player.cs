@@ -45,9 +45,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         ComputeGrounded();
-        Debug.Log(isGrounded);
-
-   
+        
 
         float dir = Input.GetAxis("Horizontal");
 

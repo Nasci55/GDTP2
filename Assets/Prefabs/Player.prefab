@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 6095959118616293806}
   - component: {fileID: 5892206957468963454}
   - component: {fileID: 7932470074732455916}
-  - component: {fileID: 3608801942602439695}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -297,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinColider: {fileID: 0}
-  coinValue: 1
+  coinValue: 10
   coin: {fileID: 0}
   Vault: {fileID: 0}
   enemyCooldown: 5
@@ -337,23 +336,6 @@ MonoBehaviour:
     m_Bits: 64
   groundCheck: {fileID: 2719053159071330413}
   groundCheckRadius: 2
---- !u!114 &3608801942602439695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4385483626070085486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6fc8a1e9dd21634a9cb00402422ec6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showInfo: 1
-  _explanation: 
-  description: 
-  hypertags:
-  - {fileID: 11400000, guid: 15edcc3cfa00a4e2fba5f80bcf8774c8, type: 2}
 --- !u!1 &7084800748938250817
 GameObject:
   m_ObjectHideFlags: 0

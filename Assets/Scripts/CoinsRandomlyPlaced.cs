@@ -24,11 +24,6 @@ public class CoinsRandomlyPlaced : MonoBehaviour
        playerCollider = player.GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.GetComponent<Player>())
@@ -43,7 +38,6 @@ public class CoinsRandomlyPlaced : MonoBehaviour
             
 
             StartCoroutine(DelayCoinSpawning(delayForCoins, randPos));
-            //Debug.Log($"Coin is now in {randPos}");
             
             lastPos = randPos;
 

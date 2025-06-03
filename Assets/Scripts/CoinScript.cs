@@ -19,14 +19,11 @@ public class CoinScript : MonoBehaviour
 
     private void Update()
     {
-        enemyCooldown -= Time.deltaTime;
-        
+        enemyCooldown -= Time.deltaTime;    
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(enemyCooldown);
-        Debug.Log($"{collider.name}");
         if (collider == coinColider)
         {
             coinStach += coinValue;
@@ -40,13 +37,11 @@ public class CoinScript : MonoBehaviour
                 if (coinStach > 20)
                 {
                     coinStach -= 30;
-                    Debug.Log($"The player now has {coinStach}");
                     enemyCooldown = 5;
                 }
                 else
                 {
                     coinStach = 0;
-                    Debug.Log($"The player has 0");
                     enemyCooldown = 5;
                 }
             }
