@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class TrapScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    private CoinScript coinScript;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.GetComponent<Player>())
+        {
+            Destroy(gameObject);
+            coinScript.coinStach = 0;
+        }
     }
 }

@@ -12,7 +12,7 @@ public class CoinScript : MonoBehaviour
     private Vault Vault;
     
     [SerializeField]
-    public float coinStach { get; private set; } = 0;
+    public float coinStach { get; set; } = 0f;
 
     [SerializeField]
     private float enemyCooldown = 5;
