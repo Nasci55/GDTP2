@@ -26,7 +26,7 @@ public class Buttons : MonoBehaviour
     public void ResumeButton()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        pauseMenu.SetActive(false);
     }
 
     public void PauseMenu()

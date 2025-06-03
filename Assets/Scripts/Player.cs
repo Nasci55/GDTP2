@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     private Backpack Backpack;
     [SerializeField]
     private GameObject pause;
-    private int howManyCoins;
+    private float howManyCoins;
 
     [SerializeField, Header("Jump Stuff")]
     private float gravityScaling = 2.0f;
@@ -45,9 +45,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         ComputeGrounded();
-        Debug.Log(isGrounded);
-
-   
+        
 
         float dir = Input.GetAxis("Horizontal");
 
@@ -97,16 +95,16 @@ public class Player : MonoBehaviour
         {
             currentVelocity.x = dir * velocity.x;
         }
-        else if (howManyCoins >= 4 && doesThePlayerHaveTheBackpack == false)
+        else if (howManyCoins >= 40 && doesThePlayerHaveTheBackpack == false)
         {
-            currentVelocity.x = currentVelocity.x / (howManyCoins - 3);
+            currentVelocity.x /= (howManyCoins / 10) - 3;
             Debug.Log(howManyCoins);
         }
         else if (doesThePlayerHaveTheBackpack)
         {
-            if (howManyCoins >= 7)
+            if (howManyCoins >= 70)
             {
-                currentVelocity.x /= howManyCoins - 6;
+                currentVelocity.x /= (howManyCoins/10) - 6;
             }
         }
 

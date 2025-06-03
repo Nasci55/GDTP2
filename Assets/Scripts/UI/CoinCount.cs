@@ -29,7 +29,7 @@ public class CoinCount : MonoBehaviour
     {
         if (coinTotal != null && vaultCoinTotal != null)
         {
-            coinText.text = $"Coins: {coinTotal.coinStach}";
+            coinText.text = $"Coins: {coinTotal.coinStach} *  {(1 + (coinTotal.coinStach / 100))}";
             vaultText.text = $"Vault: {vaultCoinTotal.totalCoins}";
         }
         else if (coinTotal == null || vaultCoinTotal == null)

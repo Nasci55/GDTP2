@@ -24,26 +24,20 @@ public class CoinsRandomlyPlaced : MonoBehaviour
        playerCollider = player.GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (playerCollider)
+        if (collider.GetComponent<Player>())
         {
-            int randPos = Random.Range(0, 15);
+            int randPos = Random.Range(0, 10);
             transform.position = new Vector2(0, 0);
             
             if (randPos == lastPos)
             {
-                randPos = Random.Range(0,15);
+                randPos = Random.Range(0,10);
             }
             
 
             StartCoroutine(DelayCoinSpawning(delayForCoins, randPos));
-            //Debug.Log($"Coin is now in {randPos}");
             
             lastPos = randPos;
 
@@ -86,7 +80,7 @@ public class CoinsRandomlyPlaced : MonoBehaviour
             case 9:
                 transform.position = spawnPoints.TenthSpawn.position;
                 break;
-            case 10:
+            /*case 10:
                 transform.position = spawnPoints.EleventhSpawn.position;
                 break;
             case 11:
@@ -100,7 +94,7 @@ public class CoinsRandomlyPlaced : MonoBehaviour
                 break;
             case 14:
                 transform.position = spawnPoints.FifteenthSpawn.position;
-                break;
+                break;*/
         }
 
     }
@@ -119,11 +113,11 @@ public class SpawnPoints
      [SerializeField] private Transform eightSpawn;
      [SerializeField] private Transform ninethSpawn;
      [SerializeField] private Transform tenthSpawn;
-     [SerializeField] private Transform eleventhSpawn;
+     /*[SerializeField] private Transform eleventhSpawn;
      [SerializeField] private Transform twelfthSpawn;
      [SerializeField] private Transform thirteenthSpawn;
      [SerializeField] private Transform fourteenthSpawn;
-     [SerializeField] private Transform fifteenthSpawn;
+     [SerializeField] private Transform fifteenthSpawn;*/
 
      public Transform FirstSpawn => firstSpawn;
      public Transform SecondSpawn => secondSpawn;
@@ -135,10 +129,10 @@ public class SpawnPoints
      public Transform EightSpawn => eightSpawn;
      public Transform NinethSpawn => ninethSpawn;
      public Transform TenthSpawn => tenthSpawn;
-     public Transform EleventhSpawn => eleventhSpawn;
+     /*public Transform EleventhSpawn => eleventhSpawn;
      public Transform TwelfthSpawn => twelfthSpawn;
      public Transform ThirteenthSpawn => thirteenthSpawn;
-     public Transform FifteenthSpawn => fifteenthSpawn;
+     public Transform FifteenthSpawn => fifteenthSpawn;*/
 }
 
 

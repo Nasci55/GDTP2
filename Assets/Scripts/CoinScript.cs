@@ -5,28 +5,25 @@ public class CoinScript : MonoBehaviour
     [SerializeField]
     private Collider2D coinColider;
     [SerializeField]
-    private int coinValue = 1;
+    private float coinValue = 1;
     [SerializeField]
     private GameObject coin;
     [SerializeField]
     private Vault Vault;
     
     [SerializeField]
-    public int coinStach { get; private set; } = 0;
+    public float coinStach { get; private set; } = 0;
 
     [SerializeField]
     private float enemyCooldown = 5;
 
     private void Update()
     {
-        enemyCooldown -= Time.deltaTime;
-        
+        enemyCooldown -= Time.deltaTime;    
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(enemyCooldown);
-        Debug.Log($"{collider.name}");
         if (collider == coinColider)
         {
             coinStach += coinValue;
@@ -37,20 +34,19 @@ public class CoinScript : MonoBehaviour
 
             if (enemyCooldown < 0)
             {
-                if (coinStach > 1)
+                if (coinStach > 20)
                 {
-                    coinStach -= 2;
-                    Debug.Log($"The player now has {coinStach}");
+                    coinStach -= 30;
                     enemyCooldown = 5;
                 }
                 else
                 {
                     coinStach = 0;
-                    Debug.Log($"The player has 0");
                     enemyCooldown = 5;
                 }
             }
         }
+
     }
 
     private void OnTriggerStay2D(Collider2D collider)
