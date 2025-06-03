@@ -12,6 +12,8 @@ public class Vault : MonoBehaviour
     public float totalCoins { get; private set; } = 0;
     [SerializeField]
     private TextMeshProUGUI winText;
+    [SerializeField]
+    private int winScore;
     private Collider2D playerCollider;
     public bool areTheCoinsInTheVault { get; private set; }
 
@@ -46,7 +48,7 @@ public class Vault : MonoBehaviour
 
     private IEnumerator WinScene()
     {
-        if (totalCoins >= 500)
+        if (totalCoins >= winScore)
         {
             winText.gameObject.SetActive(true);
             yield return new WaitForSeconds(2f);

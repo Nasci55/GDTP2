@@ -13,6 +13,7 @@ public class Backpack : MonoBehaviour
         if(collider.GetComponent<Player>())
         {
             getBackpack =true;
+            Destroy(gameObject);
         }
     }
 

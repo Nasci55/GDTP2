@@ -33,8 +33,8 @@ public class EnemyTraper : MonoBehaviour
         if (cooldownCounter <= 0)
         {
             int randPos = Random.Range(0, 15);
-            TrapSpawning(randPos);
             Instantiate(trapPrefab, transform.position, Quaternion.identity);
+            TrapSpawning(randPos);
             cooldownCounter = initialCooldown;
             Debug.Log("Trap placed. Cooldown reset.");
         }
