@@ -46,7 +46,7 @@ public class Vault : MonoBehaviour
 
     private IEnumerator WinScene()
     {
-        if (totalCoins >= 20)
+        if (totalCoins >= 500)
         {
             winText.gameObject.SetActive(true);
             yield return new WaitForSeconds(2f);
