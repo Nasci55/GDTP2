@@ -5,14 +5,14 @@ public class CoinScript : MonoBehaviour
     [SerializeField]
     private Collider2D coinColider;
     [SerializeField]
-    private int coinValue = 1;
+    private float coinValue = 1;
     [SerializeField]
     private GameObject coin;
     [SerializeField]
     private Vault Vault;
     
     [SerializeField]
-    public int coinStach { get; private set; } = 0;
+    public float coinStach { get; private set; } = 0;
 
     [SerializeField]
     private float enemyCooldown = 5;
@@ -37,9 +37,9 @@ public class CoinScript : MonoBehaviour
 
             if (enemyCooldown < 0)
             {
-                if (coinStach > 1)
+                if (coinStach > 20)
                 {
-                    coinStach -= 3;
+                    coinStach -= 30;
                     Debug.Log($"The player now has {coinStach}");
                     enemyCooldown = 5;
                 }
@@ -51,6 +51,7 @@ public class CoinScript : MonoBehaviour
                 }
             }
         }
+
     }
 
     private void OnTriggerStay2D(Collider2D collider)
